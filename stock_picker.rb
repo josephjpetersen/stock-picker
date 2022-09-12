@@ -2,7 +2,7 @@ def stock_picker(prices)
   
   results = []
   
-  results = prices.each_with_index.with_object([]) do |(buy_price, index), results|
+  prices.each_with_index do |buy_price, index|
     highest_value = prices[index..].max
     highest_index = prices[index..].each_with_index.max[1] + index
     results << [highest_value - buy_price, index, highest_index]
